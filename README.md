@@ -73,3 +73,21 @@ public class GrayController implements Controller {
 
 ```
 
+## start user swagger ui
+* in dev test start swagger in application.yml
+
+```
+
+spring:
+    swagger:
+       enable: true
+       info:
+         basePackage: com.yyfq.groot.gateway.web
+         title: 网关API
+         contact: junqing.li@mljr.com
+         termsOfServiceUrl: http://xxx.api.com
+         description: 网关提供入口
+         version: 1.0
+
+```
+
