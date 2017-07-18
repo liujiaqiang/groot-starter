@@ -3,6 +3,7 @@ package com.yyfq.groot.common.web.config;
 import java.util.List;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -18,6 +19,7 @@ import com.yyfq.groot.common.web.handler.ResultHttpMessageConverter;
 /**
  * Created by junqing.li on 17/4/18.
  */
+@Import(SwaggerConfig.class)
 public abstract class AbstractMvcConfig extends WebMvcConfigurerAdapter {
 
   @Bean

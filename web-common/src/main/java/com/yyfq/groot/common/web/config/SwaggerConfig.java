@@ -6,6 +6,7 @@ import java.util.Collections;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
@@ -32,28 +33,33 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 /**
  * swagger 配置
  */
-@ConditionalOnProperty(prefix = "spring.swagger.ui", name = "enbale", havingValue = "true")
+@ConditionalOnProperty(prefix = "spring.swagger", name = "enable", havingValue = "true")
 @Configuration
 @EnableSwagger2
+@EnableConfigurationProperties(SwaggerApiInfo.class)
 public class SwaggerConfig {
 
   @Autowired
   private JsonSerializer jsonSerializer;
 
+  @Autowired
+  private SwaggerApiInfo swaggerApiInfo;
+
   @Bean
   public Docket adminApi() {
     return new Docket(DocumentationType.SWAGGER_2)
         .produces(Collections.singleton(MediaType.APPLICATION_JSON_UTF8_VALUE)).apiInfo(apiInfo())
-        .select().apis(RequestHandlerSelectors.basePackage("com.yyfq.tsms.web"))
+        .select().apis(RequestHandlerSelectors.basePackage(swaggerApiInfo.getBasePackage()))
         .paths(PathSelectors.any()).build();
 
   }
 
   private ApiInfo apiInfo() {
 
-    return new ApiInfoBuilder().title("电销系统").description("tsms-api-doc")
-        .termsOfServiceUrl("http://tsms.yyfq.com").contact("juqning.li@mljr.com").version("1.0")
-        .build();
+    return new ApiInfoBuilder().title(swaggerApiInfo.getTitle())
+        .description(swaggerApiInfo.getDescription())
+        .termsOfServiceUrl(swaggerApiInfo.getTermsOfServiceUrl())
+        .contact(swaggerApiInfo.getContact()).version(swaggerApiInfo.getVersion()).build();
 
   }
 
