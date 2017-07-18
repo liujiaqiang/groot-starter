@@ -54,22 +54,22 @@ public class GrayController implements Controller {
 
 ```
 {
+    "code": "G_0000", 
+    "msg": "SUCCESS", 
+    "result": [
+        {
+            "app": "tsms", 
+            "graying": true, 
+            "serverIdList": [
+                "localhost:8080", 
+                "localhost:8585"
+            ], 
+            "toServerId": "localhost:8585", 
+            "userList": null
+        }
+    ], 
+    "success": true
+}
 
-code: "G_0000",
-msg: "SUCCESS",
-result: [
-{
-app: "tsms",
-graying: true,
-serverIdList: [
-"localhost:8080",
-"localhost:8585"
-],
-toServerId: "localhost:8585",
-userList: null
-}
-],
-success: true
-}
 ```
 
