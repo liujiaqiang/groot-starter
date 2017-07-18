@@ -16,8 +16,8 @@
 ## 使用
 * api-commmon：单独使用
 * web-commmon: 基于spring-boot-web
-```
 
+```
 /**
  *  需要继承下 AbstractMvcConfig
  */
@@ -30,7 +30,6 @@ public class WebConfig extends AbstractMvcConfig {
     super.addResourceHandlers(registry);
   }
 }
-
 ```
 
 * 使用之后统一了返回模型
@@ -49,14 +48,11 @@ public class GrayController implements Controller {
   public List<GrayConfig> getServerInfo() {
     return grayService.getAllConfig();
   }
-
-
 ```
 
-返回结果自动包装
+* 返回结果自动包装
 
 ```
-
 {
 
 code: "G_0000",
@@ -75,6 +71,5 @@ userList: null
 ],
 success: true
 }
-
 ```
 
