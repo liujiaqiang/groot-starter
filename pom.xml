@@ -11,6 +11,7 @@
     <modules>
         <module>api-common</module>
         <module>web-common</module>
+        <module>beanmapper</module>
     </modules>
 
     <properties>
