@@ -66,10 +66,10 @@ public class GrootResult<T> implements Serializable {
   }
 
 
-  public static GrootResult fail(int code, String msg) {
+  public static GrootResult fail(String code, String msg) {
 
     GrootResult result = new GrootResult();
-    result.setCode(GrootCode.SUCCESS);
+    result.setCode(code);
     result.setMsg(msg);
     return result;
   }

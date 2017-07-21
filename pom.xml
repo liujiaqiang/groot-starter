@@ -12,6 +12,7 @@
         <module>api-common</module>
         <module>web-common</module>
         <module>beanmapper</module>
+        <module>pagehelper-start</module>
     </modules>
 
     <properties>
@@ -25,6 +26,8 @@
         <maven.compiler.target>1.8</maven.compiler.target>
 
         <spring-boot.version>1.5.2.RELEASE</spring-boot.version>
+        <spring-boot-mybatis.version>1.2.1</spring-boot-mybatis.version>
+        <pagehelper.version>5.0.0</pagehelper.version>
         <platform-bom.version>Brussels-RELEASE</platform-bom.version>
         <servlet.version>3.1.0</servlet.version>
         <lombok.version>1.16.12</lombok.version>
@@ -79,6 +82,18 @@
                 <groupId>com.drore.cloud</groupId>
                 <artifactId>swagger-bootstrap-ui</artifactId>
                 <version>1.1</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${spring-boot-mybatis.version}</version>
             </dependency>
 
         </dependencies>
