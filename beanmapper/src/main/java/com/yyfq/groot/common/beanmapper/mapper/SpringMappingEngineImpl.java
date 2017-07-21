@@ -1,5 +1,7 @@
 package com.yyfq.groot.common.beanmapper.mapper;
 
+import java.util.Objects;
+
 import org.springframework.beans.BeanUtils;
 
 /**
@@ -9,6 +11,10 @@ public class SpringMappingEngineImpl extends AbstractMappingEngine {
 
   @Override
   protected <T, S> T mapInternal(S source, T target) {
+
+    if (Objects.isNull(source)) {
+      return null;
+    }
 
     BeanUtils.copyProperties(source, target);
 
