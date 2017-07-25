@@ -91,3 +91,12 @@ spring:
 
 ```
 
+## 添加日志debug功能
+
+```
+spring:
+    web:
+      debug: true
+      
+```
+
