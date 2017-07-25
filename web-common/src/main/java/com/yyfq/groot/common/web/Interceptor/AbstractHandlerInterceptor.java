@@ -45,7 +45,7 @@ public abstract class AbstractHandlerInterceptor extends HandlerInterceptorAdapt
   protected boolean debug(HttpServletRequest request) {
 
     String debugParam = request.getParameter("debug");
-    return "true".equals(debugParam) && debug;
+    return "true".equals(debugParam) || debug;
   }
 
   private void log(HttpServletRequest request) {
