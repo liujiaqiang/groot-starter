@@ -23,14 +23,16 @@ public class ContextInterceptor extends AbstractHandlerInterceptor {
   @Override
   public boolean postHandle0(HttpServletRequest request, HttpServletResponse response,
       HandlerMethod handler) {
-    setLocalController(handler);
+
+
+    setLocalController(handler, debug(request));
 
     return true;
   }
 
-  private void setLocalController(HandlerMethod handler) {
+  private void setLocalController(HandlerMethod handler, boolean debug) {
     boolean isTsmsController = Controller.class.isAssignableFrom(handler.getBeanType());
-    WebContextHolder.setContextHolder(new ContextHolder(isTsmsController));
+    WebContextHolder.setContextHolder(new ContextHolder(isTsmsController, debug));
   }
 
   @Override

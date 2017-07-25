@@ -21,4 +21,6 @@ public class ContextHolder {
   /** 是否是本地Controller */
   private boolean isLocalController;
 
+  private boolean debug;
+
 }
