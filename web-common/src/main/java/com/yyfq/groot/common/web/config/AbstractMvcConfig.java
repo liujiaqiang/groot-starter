@@ -14,6 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import com.yyfq.groot.common.web.JsonUtils;
 import com.yyfq.groot.common.web.Interceptor.ContextInterceptor;
 import com.yyfq.groot.common.web.handler.ResultHttpMessageConverter;
+import com.yyfq.groot.common.web.handler.ResultResponseBodyAdvice;
 
 
 /**
@@ -21,6 +22,11 @@ import com.yyfq.groot.common.web.handler.ResultHttpMessageConverter;
  */
 @Import(SwaggerConfig.class)
 public abstract class AbstractMvcConfig extends WebMvcConfigurerAdapter {
+
+  @Bean
+  public ResultResponseBodyAdvice resultResponseBodyAdvice() {
+    return new ResultResponseBodyAdvice();
+  }
 
   @Bean
   public ResultHttpMessageConverter resultHttpMessageConverter() {

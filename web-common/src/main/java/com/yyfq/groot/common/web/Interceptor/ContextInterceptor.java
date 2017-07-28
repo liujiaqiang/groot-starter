@@ -3,12 +3,18 @@ package com.yyfq.groot.common.web.Interceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.web.method.HandlerMethod;
+import org.springframework.web.util.WebUtils;
 
 import com.yyfq.groot.common.web.Controller;
 import com.yyfq.groot.common.web.context.ContextHolder;
 import com.yyfq.groot.common.web.context.WebContextHolder;
 
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -19,13 +25,37 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ContextInterceptor extends AbstractHandlerInterceptor {
 
+  @Getter
+  @Setter
+  @Value("${spring.web.debug:false}")
+  private boolean debug;
+
+  @Autowired
+  private Environment environment;
+
+
+  /**
+   * 是否开启debug
+   *
+   * @param request
+   * @return
+   */
+  protected boolean debug(HttpServletRequest request) {
+
+    String debugParam = request.getParameter("debug");
+    return "true".equals(debugParam) || debug;
+  }
 
   @Override
   public boolean postHandle0(HttpServletRequest request, HttpServletResponse response,
       HandlerMethod handler) {
 
-
-    setLocalController(handler, debug(request));
+    boolean debug = debug(request);
+    if (debug) {
+      log.info("{} method={}, uri={}, params = {}", "ip", request.getMethod(),
+          request.getRequestURI(), WebUtils.getParametersStartingWith(request, ""));
+    }
+    setLocalController(handler, debug);
 
     return true;
   }
