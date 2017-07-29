@@ -1,4 +1,4 @@
 # Auto Configure
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.yyfq.groot.common.pagehelper.PageHelperAutoConfiguration
+  com.groot.io.common.pagehelper.PageHelperAutoConfiguration
 

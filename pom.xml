@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.yyfq.groot.common</groupId>
+    <groupId>com.groot.io.common</groupId>
     <artifactId>groot-common</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
@@ -28,6 +28,7 @@
         <spring-boot.version>1.5.2.RELEASE</spring-boot.version>
         <spring-boot-mybatis.version>1.2.1</spring-boot-mybatis.version>
         <pagehelper.version>5.0.0</pagehelper.version>
+        <apache-commons-lang.version>3.4</apache-commons-lang.version>
         <platform-bom.version>Brussels-RELEASE</platform-bom.version>
         <servlet.version>3.1.0</servlet.version>
         <lombok.version>1.16.12</lombok.version>
@@ -83,8 +84,11 @@
                 <artifactId>swagger-bootstrap-ui</artifactId>
                 <version>1.1</version>
             </dependency>
-
-
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${apache-commons-lang.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper</artifactId>
@@ -185,21 +189,5 @@
         </plugins>
 
     </build>
-
-
-    <!--仓库-->
-    <distributionManagement>
-        <snapshotRepository>
-            <id>snapshots</id>
-            <name>Snapshots respository</name>
-            <url>http://maven.szyy.com/content/repositories/snapshots</url>
-        </snapshotRepository>
-
-        <repository>
-            <id>releases</id>
-            <name>Releases respository</name>
-            <url>http://maven.szyy.com/content/repositories/releases</url>
-        </repository>
-    </distributionManagement>
 
 </project>

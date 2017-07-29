@@ -3,8 +3,7 @@
 ## aip相关common
 * 定义通用返回异常
 * 定义通用page
-* 定义通用异常
-* 定义通用异常
+* 定义通用异常处理
 
 
 ## web相关common
@@ -24,11 +23,7 @@
 @Configuration
 public class WebConfig extends AbstractMvcConfig {
 
-  @Override
-  public void addResourceHandlers(ResourceHandlerRegistry registry) {
-    registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
-    super.addResourceHandlers(registry);
-  }
+  
 }
 ```
 
@@ -58,7 +53,7 @@ public class GrayController implements Controller {
     "msg": "SUCCESS", 
     "result": [
         {
-            "app": "tsms", 
+            "app": "testapp", 
             "graying": true, 
             "serverIdList": [
                 "localhost:8080", 
