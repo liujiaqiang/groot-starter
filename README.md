@@ -77,9 +77,9 @@ spring:
     swagger:
        enable: true
        info:
-         basePackage: com.yyfq.groot.gateway.web
+         basePackage: com.io.groot.gateway.web
          title: 网关API
-         contact: junqing.li@mljr.com
+         contact: junqing.li
          termsOfServiceUrl: http://xxx.api.com
          description: 网关提供入口
          version: 1.0
