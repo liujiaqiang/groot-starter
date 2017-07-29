@@ -95,3 +95,34 @@ spring:
       
 ```
 
+
+## 分页使用
+
+* 配置
+
+```
+
+# 分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  rowboundsWithCount: true
+  ÓoffsetAsPageNum: true
+  supportMethodsArguments: false
+
+```
+
+* 例子
+
+```
+@Override
+  public Page<RoleDto> getListByParam(RoleParam roleParam, Pagination pagination) {
+
+    PageStart.now(pagination);
+    List<Role> list = roleMapper.getListByParam(roleParam);
+
+    return IamGroot.page(list, RoleDto.class, role -> mapForList(role));
+  }
+
+```
+
